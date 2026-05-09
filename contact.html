@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact - Adhitya</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <h1 class="logo">Adhitya</h1>
+      <ul class="nav-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="section-info">
+    <div class="container-single">
+      <div class="container-card">
+        <h2 class="blue"><span><i class="fa-solid fa-envelope"></i></span> Get In Touch</h2>
+        <p>I'm currently open for freelance opportunities or full-time positions. Feel free to message me!</p>
+        
+        <form class="contact-form">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="email@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" rows="5" placeholder="How can I help you?" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-full">Send Message</button>
+        </form>
+      </div>
+
+      <div class="contact-details-grid">
+         <!-- Email Card -->
+        <a href="mailto:xrcadhit@gmail.com" class="container-card detail-item link-card">
+            <i class="fa-solid fa-envelope"></i>
+            <h3>Email</h3>
+            <p>xrcadhit@gmail.com</p>
+        </a>
+
+        <!-- LinkedIn Card -->
+        <a href="https://linkedin.com/in/adhitya" target="_blank" class="container-card detail-item link-card">
+            <i class="fa-brands fa-linkedin"></i>
+            <h3>LinkedIn</h3>
+            <p>Professional Profile</p>
+        </a>
+
+        <!-- GitHub Card -->
+        <a href="https://github.com/adhitya" target="_blank" class="container-card detail-item link-card">
+            <i class="fa-brands fa-github"></i>
+            <h3>GitHub</h3>
+            <p>Source Code & Projects</p>
+        </a>
+
+        <!-- Instagram/Other Card -->
+        <a href="#" target="_blank" class="container-card detail-item link-card">
+            <i class="fa-brands fa-instagram"></i>
+            <h3>Instagram</h3>
+            <p>Life & Updates</p>
+        </a>
+     </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Adhitya. All Right reserved</p>
+  </footer>
+</body>
+</html>
