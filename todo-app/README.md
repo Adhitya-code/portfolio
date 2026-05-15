@@ -26,23 +26,5 @@
 
 
 
-Petunjuk
 
-✅ tambah task
-
-✅ hapus task
-
-✅ checklist selesai
-
-✅ simpan otomatis (localStorage)
-
-✅ filter
-
-✅ dark mode
-
-✅ deadline
-
-✅ kategori
-
-✅ drag \& drop
 
