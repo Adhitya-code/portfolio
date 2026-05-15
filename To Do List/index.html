@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>To Do List</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/1921a4ada3.js" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <header class="container">
+            <div class="header-left">
+                <h1>To Do List</h1>
+            </div>
+             
+            <div class="header-right">
+                <a href="" id="task-btn"><i class="fa-solid fa-plus fa-xs"></i>Add Task</a>
+            </div>
+        </header>
+
+        <main class="container">
+            <section class="main-section" id="task-container">
+             <h2>Daftar Tugas</h2>
+             
+            <div class="task-card-header">
+                <div class="check">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+ 
+                <div class="title">
+                    <span>Judul Tugas</span>
+                 </div>
+
+                    
+                <div class="date">
+                    <span>Tenggat Waktu</span>
+                </div>
+
+                <div class="status">
+                    <span>Status</span>
+                </div>
+
+                <div class="edit">
+                    <span>Edit</span>
+                </div>
+
+                <div class="delete">
+                    <span>Hapus</span>
+                </div>
+              </div>  
+              <div class="task-container-card"></div> 
+             </div>
+            </section>
+
+            <section id="form-section" class="add-task-form hidden">
+                <form id="todo-form" class="todo-form">
+                    <div class="header">
+                        <h2>Tambahkan Tugas</h2>
+                        <button id="close-btn"><i class="fa-solid fa-x"></i></button>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="task-title">Judul Tugas</label>
+                        <input type="text" id="task-title" placeholder="Apa yang ingin dikerjakan?" required>
+                    </div>
+                        
+                    <div class="input-group">
+                        <label for="task-date">Tenggat Waktu</label>
+                        <input type="date" id="task-date" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="note">Catatan</label>
+                        <textarea id="task-note" cols="10" rows="8" placeholder="Tambahkan catatan jika perlu"></textarea>
+                    </div>
+
+                    <button type="submit" id="btn-submit" class="btn-submit">
+                        <i class="fa-solid fa-floppy-disk"></i> <span>Simpan</span>
+                    </button>
+                </form>
+            </section>
+
+        </main>
+
+        <footer>
+            <p>© 2026 Adhitya. All Right reserved</p>
+        </footer>
+
+        <script src="script.js"></script>
+    </body>
+</html>

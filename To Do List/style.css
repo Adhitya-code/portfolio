@@ -1,0 +1,253 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins";
+    background-color: #121212;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    margin: 20px auto;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.header-left img {
+   width: 45px;
+   height: 45px;
+   object-fit: cover; 
+}
+
+.header-right a {
+    text-decoration: none;
+    color: white;
+    background-color: #2563EB;
+    padding: 7px 14px;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    gap: 4px;
+    font-size: 14px;
+}
+
+.header-right i {
+    font-size: 4px;
+}
+
+main {
+    width: 80%;
+    margin: 20px auto;
+    padding: 8px;
+    flex: 1;
+}
+
+.gray {
+    color: #687082;
+}
+
+.yellow {
+    color: #B5A508;
+}
+
+.green {
+    color: #217F44;
+}
+
+.task-card-header, .task-container {
+    display: grid;
+    grid-template-columns: 50px 2fr 1fr 1fr 1fr 1fr;
+    padding: 10px 0;
+    align-items: center;
+    background-color: #1E1E1E;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+
+
+.task-card-header > div {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    width: 100%;
+}
+
+
+.task-card-header .title,
+.task-card-header .date {
+    justify-content: flex-start !important; 
+}
+
+.done input {
+    display: none;
+}
+
+.checkmark {
+    width: 15px;
+    height: 15px;
+    border: 1px solid #70706E;
+    position: relative;
+    display: inline-block;
+    border-radius: 3px;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #687082;
+}
+
+.done input:checked + .checkmark {
+    background-color: #70706E;
+}
+
+.done input:checked + .checkmark::after {
+    content: "✔";
+    position: absolute;
+    inset: 0;
+    color: #2B2B29;
+    font-size: 11px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-btn, .delete-btn {
+    background: none;
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+
+
+.edit a, .delete a {
+    color: white;
+    text-decoration: none;
+}
+
+
+
+
+/* Styling Form Tambah Task */
+.add-task-form {
+    background-color: #1e1e1e;
+    padding: 20px;
+    width: 50vw;
+    border-radius: 12px;
+    border: 1px border #2e2e2e;
+    margin: 10px auto;
+}
+
+.todo-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header button {
+    background: none;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+    min-width: 200px;
+}
+
+.input-group label {
+    font-size: 13px;
+    color: #94a3b8;
+    font-weight: 500;
+}
+
+.input-group input, 
+.input-group select {
+    background-color: #ffffff;
+    border: 1px solid #1E1E1E;
+    color: black;
+    padding: 12px;
+    border-radius: 8px;
+    outline: none;
+    font-family: inherit;
+    transition: border 0.3s;
+}
+
+.input-group input[type="date"] {
+    color: #687082;
+}
+
+.input-group input[type="date"]:valid {
+    color: black;
+}
+
+.input-group textarea {
+    background-color: #ffffff;
+    border-radius: 8px;
+    color: black;
+    outline: none;
+    padding: 12px;
+}
+
+.input-group input:focus, .input-group textarea:focus {
+    border-color: #3b82f6;
+}
+
+.btn-submit {
+    background-color: #2563EB;
+    color: white;
+    border: none;
+    padding: 11px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+    display: flex;
+    align-items: center;
+    align-self: flex-end;
+    gap: 8px;
+}
+
+.btn-submit:hover {
+    filter: brightness(1.1);
+}
+
+.hidden {
+    display: none !important;
+}
+
+footer {
+    background: #020617;
+    color: #687082;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
