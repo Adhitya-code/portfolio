@@ -21,7 +21,7 @@ function renderTask() {
     tasks.forEach((task) => {
         containerCard.innerHTML += `
         <div class="task-container-card">
-                <div class="task-card-header" data-id="${task.id}">
+                <div class="task-card-header hover" data-id="${task.id}">
                     <div class="check">
                         <label class="done">
                             <input 
@@ -124,6 +124,7 @@ containerSection.addEventListener("click", (event) => {
     const deleteBtn = target.closest(".delete-btn")
     const editBtn = target.closest(".edit-btn");
     const checkbox = target.closest(".checkbox");
+    const card = target.closest(".hover")
 
     if (deleteBtn) {
         const taskCard = deleteBtn.closest(".task-card-header");
@@ -136,8 +137,8 @@ containerSection.addEventListener("click", (event) => {
         renderTask()
     }
 
-    if (editBtn) {
-        const taskCard = editBtn.closest(".task-card-header");
+    if (editBtn || card) {
+        const taskCard = editBtn ? editBtn.closest(".task-card-header") : card;
         currentEditTask = taskCard
 
         const id = Number(taskCard.dataset.id)
@@ -173,7 +174,9 @@ containerSection.addEventListener("change", (event) => {
     renderTask()
 })
 
-closeBtn.addEventListener("click", () => {
+closeBtn.addEventListener("click", (e) => {
+    e.preventDefault
+
     containerSection.classList.remove("hidden");
     formSection.classList.add("hidden");
 })
