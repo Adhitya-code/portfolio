@@ -9,6 +9,11 @@ const formSection = document.getElementById("form-section");
 const deleteBtn = document.querySelector(".delete-btn");
 const closeBtn = document.getElementById("close-btn")
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+
+const toggleBtn = document.querySelector(".night-mode-btn");
+const icon = toggleBtn.querySelector("i")
+
 let currentEditTask = null;
 
 function saveToLocalStorage() {
@@ -23,7 +28,7 @@ function renderTask() {
         <div class="task-container-card">
                 <div class="task-card-header hover" data-id="${task.id}">
                     <div class="check">
-                        <label class="done">
+                        <label class="done hoverable">
                             <input 
                             class="checkbox" 
                             type="checkbox"
@@ -43,17 +48,17 @@ function renderTask() {
                     </div>
 
                     <div class="status">
-                        <span class="task-status ${task.completed ? "green" : "yellow"}">${task.completed ? "Selesai" : "Belum Selesai"}</span>
+                        <span class="task-status ${task.completed ? "green" : "blue"}">${task.completed ? "Selesai" : "Belum Selesai"}</span>
                     </div>
 
-                    <div class="edit">
-                        <button class="edit-btn">
+                    <div class="edit ">
+                        <button class="edit-btn hoverable">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </button>
                     </div>
 
-                    <div class="delete">
-                        <button class="delete-btn">
+                    <div class="delete ">
+                        <button class="delete-btn hoverable">
                             <i class="fa-solid fa-x"></i>
                         </button>
                     </div>
@@ -70,6 +75,7 @@ function renderTask() {
 form.addEventListener("submit", (event) => {
     event.preventDefault();
 
+    
     
 
     
@@ -101,9 +107,7 @@ form.addEventListener("submit", (event) => {
 
     renderTask();
 
-    taskTitle.value = "";
-    taskDate.value = "";
-    taskNote.value = "";
+    form.reset()
 
     containerSection.classList.remove("hidden");
     formSection.classList.add("hidden");
@@ -112,7 +116,8 @@ form.addEventListener("submit", (event) => {
 taskBtn.addEventListener("click", (event) => {
     event.preventDefault();
 
-
+    currentEditTask = null;
+    form.reset()
     containerSection.classList.add("hidden");
     formSection.classList.remove("hidden")
 })
@@ -121,6 +126,11 @@ taskBtn.addEventListener("click", (event) => {
 
 containerSection.addEventListener("click", (event) => {
     const target = event.target;
+
+    if (target.closest(".checkbox") || target.closest(".checkmark")) {
+        return; 
+    }
+
     const deleteBtn = target.closest(".delete-btn")
     const editBtn = target.closest(".edit-btn");
     const checkbox = target.closest(".checkbox");
@@ -135,9 +145,10 @@ containerSection.addEventListener("click", (event) => {
 
         saveToLocalStorage()
         renderTask()
+        return;
     }
 
-    if (editBtn || card) {
+    if ((editBtn || card) && !checkbox) {
         const taskCard = editBtn ? editBtn.closest(".task-card-header") : card;
         currentEditTask = taskCard
 
@@ -175,10 +186,18 @@ containerSection.addEventListener("change", (event) => {
 })
 
 closeBtn.addEventListener("click", (e) => {
-    e.preventDefault
+    e.preventDefault()
 
     containerSection.classList.remove("hidden");
     formSection.classList.add("hidden");
 })
+
+toggleBtn.addEventListener("click", () => {
+    const isDark = document.body.classList.toggle("dark");
+
+    
+})
+
+
 
 renderTask();

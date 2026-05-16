@@ -10,14 +10,18 @@
         <script src="https://kit.fontawesome.com/1921a4ada3.js" crossorigin="anonymous"></script>
     </head>
 
-    <body>
+    <body class="">
         <header class="container">
             <div class="header-left">
                 <h1>To Do List</h1>
             </div>
              
             <div class="header-right">
-                <a href="" id="task-btn"><i class="fa-solid fa-plus fa-xs"></i>Add Task</a>
+                <nav class="nav-container">
+                    <span class="night-mode-btn"><i class="fa-solid fa-moon"></i></span>
+                    <a href="" id="task-btn"><i class="fa-solid fa-plus fa-xs"></i>Add Task</a> 
+                </nav>
+                
             </div>
         </header>
 
@@ -39,7 +43,7 @@
                     <span>Tenggat Waktu</span>
                 </div>
 
-                <div class="status">
+                <div class="statusr">
                     <span>Status</span>
                 </div>
 
@@ -52,14 +56,14 @@
                 </div>
               </div>  
               <div class="task-container-card"></div> 
-             </div>
+    
             </section>
 
             <section id="form-section" class="add-task-form hidden">
                 <form id="todo-form" class="todo-form">
                     <div class="header">
                         <h2>Tambahkan Tugas</h2>
-                        <button id="close-btn"><i class="fa-solid fa-x"></i></button>
+                        <button id="close-btn"><i class="fa-solid fa-x hoverable2"></i></button>
                     </div>
                     
                     <div class="input-group">
