@@ -6,7 +6,6 @@ const taskNote = document.getElementById("task-note");
 const form = document.getElementById("todo-form");
 const taskBtn = document.getElementById("task-btn");
 const formSection = document.getElementById("form-section");
-const deleteBtn = document.querySelector(".delete-btn");
 const closeBtn = document.getElementById("close-btn")
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
@@ -195,8 +194,28 @@ closeBtn.addEventListener("click", (e) => {
 toggleBtn.addEventListener("click", () => {
     const isDark = document.body.classList.toggle("dark");
 
-    
+    if (isDark) {
+        sessionStorage.setItem("theme", "dark");
+    } else {
+        sessionStorage.setItem("theme", "light")
+    }
 })
+
+const saveTheme = sessionStorage.getItem("theme")
+
+if (saveTheme) {
+    
+    if (saveTheme === "dark") {
+        document.body.classList.add("dark")
+    }
+} else {
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    if (prefersDark) {
+        document.body.classList.add("dark")
+    }
+}
+
 
 
 
