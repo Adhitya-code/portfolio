@@ -172,7 +172,33 @@ main {
     color: var(--green);
 }
 
-.task-card-header, .task-container {
+.task-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.filter-pills {
+    display: flex;
+    gap: 10px;
+}
+
+.pill-btn {
+    background: none;
+    color: var(--text);
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.pill-btn.active {
+    background-color: #2563eb; /* Biru accent dari tombol Add Task */
+    color: #ffffff;
+    border-color: #2563eb;
+    border-radius: 8px;
+}
+
+.task-table-header, .task-card-header {
     display: grid;
     grid-template-columns: 50px 2fr 1fr 1fr 1fr 1fr;
     padding: 10px 0;
@@ -198,7 +224,7 @@ main {
 
 
 
-.task-card-header > div {
+.task-card-header > div, .task-table-header > div {
     display: flex;
     justify-content: center; 
     align-items: center;
@@ -207,8 +233,13 @@ main {
 
 
 .task-card-header .title,
-.task-card-header .date {
+.task-card-header .date, .task-table-header .title,
+.task-table-header .date {
     justify-content: flex-start !important; 
+}
+
+.dragging {
+    opacity: 0.6;
 }
 
 .done input {

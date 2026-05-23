@@ -27,9 +27,17 @@
 
         <main class="container">
             <section class="main-section" id="task-container">
-             <h2>Daftar Tugas</h2>
+
+             <div class="task-header">
+                <h2>Daftar Tugas</h2>
+                <div class="filter-pills">
+                    <button class="pill-btn active" data-filter="all">Semua</button>
+                    <button class="pill-btn" data-filter="belum">Belum Selesai</button>
+                    <button class="pill-btn" data-filter="selesai">Selesai</button>
+                </div>
+             </div>
              
-            <div class="task-card-header">
+            <div class="task-table-header">
                 <div class="check">
                     <i class="fa-solid fa-check"></i>
                 </div>
@@ -93,6 +101,7 @@
             <p>© 2026 Adhitya. All Right reserved</p>
         </footer>
 
+        <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.6/Sortable.min.js"></script>
         <script src="script.js"></script>
     </body>
 </html>

@@ -8,10 +8,11 @@ const taskBtn = document.getElementById("task-btn");
 const formSection = document.getElementById("form-section");
 const closeBtn = document.getElementById("close-btn")
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-
+const filterBtn = document.querySelectorAll(".pill-btn")
+let currentFilter = "all";
 
 const toggleBtn = document.querySelector(".night-mode-btn");
-const icon = toggleBtn.querySelector("i")
+const icon = toggleBtn.querySelector("i");
 
 let currentEditTask = null;
 
@@ -22,53 +23,87 @@ function saveToLocalStorage() {
 function renderTask() {
     containerCard.innerHTML = "";
 
-    tasks.forEach((task) => {
-        containerCard.innerHTML += `
-        <div class="task-container-card">
-                <div class="task-card-header hover" data-id="${task.id}">
-                    <div class="check">
-                        <label class="done hoverable">
-                            <input 
-                            class="checkbox" 
-                            type="checkbox"
-                            ${task.completed ? "checked" : ""}
-                            >
-                            <span class="checkmark"></span>
-                        </label>
-                    </div>
- 
-                    <div class="title">
-                        <span class="task-title ${task.completed ? "completed" : ""}">${task.title}</span>
-                    </div>
-
-                    
-                    <div class="date">
-                        <span class="task-date gray">${task.date}</span>
-                    </div>
-
-                    <div class="status">
-                        <span class="task-status ${task.completed ? "green" : "blue"}">${task.completed ? "Selesai" : "Belum Selesai"}</span>
-                    </div>
-
-                    <div class="edit ">
-                        <button class="edit-btn hoverable">
-                            <i class="fa-solid fa-pen-to-square"></i>
-                        </button>
-                    </div>
-
-                    <div class="delete ">
-                        <button class="delete-btn hoverable">
-                            <i class="fa-solid fa-x"></i>
-                        </button>
-                    </div>
-
-                    <div class="note hidden">
-                        <span class="task-note">${task.note}</span>
-                    </div>
-                </div>
-              </div>`
+    const filteredTask = tasks.filter((task) => {
+        if (currentFilter === "selesai") return task.completed === true;
+        if (currentFilter === "belum") return task.completed === false;
+        return true
     })
+
+    filteredTask.forEach((task) => {
+        containerCard.innerHTML += `
+            <div class="task-card-header hover" data-id="${task.id}">
+                
+                <div class="check">
+                    <label class="done hoverable">
+                        <input 
+                        class="checkbox" 
+                        type="checkbox"
+                        ${task.completed ? "checked" : ""}
+                        >
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+
+                <div class="title">
+                    <span class="task-title ${task.completed ? "completed" : ""}">
+                        ${task.title}
+                    </span>
+                </div>
+
+                <div class="date">
+                    <span class="task-date gray">${task.date}</span>
+                </div>
+
+                <div class="status">
+                    <span class="task-status ${task.completed ? "green" : "blue"}">
+                        ${task.completed ? "Selesai" : "Belum Selesai"}
+                    </span>
+                </div>
+
+                <div class="edit">
+                    <button class="edit-btn hoverable">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </button>
+                </div>
+
+                <div class="delete">
+                    <button class="delete-btn hoverable">
+                        <i class="fa-solid fa-x"></i>
+                    </button>
+                </div>
+
+                <div class="note hidden">
+                    <span class="task-note">${task.note}</span>
+                </div>
+
+            </div>
+        `;
+    });
 }
+
+new Sortable(containerCard, {
+    animation: 150,
+
+    ghostClass: "dragging",
+
+    onEnd: () => {
+        const newTasks = [];
+
+        document.querySelectorAll(".task-card-header").forEach((card) => {
+            const id = Number(card.dataset.id);
+
+            const task = tasks.find(task => task.id === id)
+
+            if (task) {
+                 newTasks.push(task)
+            }  
+        })
+
+        tasks = newTasks
+
+        saveToLocalStorage()
+    }
+})
 
 
 form.addEventListener("submit", (event) => {
@@ -215,6 +250,20 @@ if (saveTheme) {
         document.body.classList.add("dark")
     }
 }
+
+filterBtn.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        filterBtn.forEach((btn) => btn.classList.remove("active"));
+
+        btn.classList.add("active")
+
+        currentFilter = btn.dataset.filter
+
+        renderTask()
+    })
+})
 
 
 
