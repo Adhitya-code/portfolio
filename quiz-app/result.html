@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Results - Quizify</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="left-header">
+            <h1 class="header">QUIZIFY</h1>
+        </div>
+        <div class="right-header">
+            <span><i class="fa-solid fa-moon"></i></span>
+        </div>
+    </header>
+
+    <main class="result-main">
+        <div class="result-card">
+            <div class="result-icon-container">
+                <div class="trophy-icon">
+                    <i class="fa-solid fa-trophy"></i>
+                </div>
+            </div>
+
+            <h2 class="result-title">Quiz Completed!</h2>
+            <p class="result-subtitle" id="result-title">Science Technology Quiz</p>
+
+            <div class="score-container">
+                <span class="score-number" id="score-number">0</span>
+                <span class="score-max">/ 100</span>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-box correct">
+                    <span class="stat-count" id="correct-count"><i class="fa-solid fa-circle-check"></i> 12</span>
+                    <span class="stat-label">Correct</span>
+                </div>
+
+                <div class="stat-box incorrect">
+                    <span class="stat-count" id="incorrect-count"><i class="fa-solid fa-circle-xmark"></i> 3</span>
+                    <span class="stat-label">Incorrect</span>
+                </div>
+            </div>
+
+            <div class="result-actions">
+                <a href="quiz.html" class="btn-primary"><i class="fa-solid fa-rotate-right"></i> Play Again</a>
+                <a href="index.html" class="btn-secondary"><i class="fa-solid fa-house"></i> Back to Home</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 Adhitya. All Right reserved</p>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/1921a4ada3.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>

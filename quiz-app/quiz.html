@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Quiz App</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    </head>
+    <body>
+        <header>
+            <div class="left-header">
+                <h1 class="header">QUIZIFY</h1>
+            </div>
+
+            <div class="right-header">
+                <span><i class="fa-solid fa-moon"></i></span>
+            </div>
+        </header>
+
+        <main class="quiz-main">
+            <div class="quiz-title">
+                <div class="quiz-title-left">
+                    <span class="exit-quiz" id="exit-quiz"><i class="fa-solid fa-arrow-left"></i> Exit Quiz</span>
+                </div>
+
+                <div class="quiz-title-right">
+                    
+                </div>
+            </div>
+            
+            <div class="quiz-grid">
+                <div class="quiz-container">
+                    <div class="progress-container">
+                        <span class="question-text"></span>
+
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+
+                        <span class="progress-percent">0%</span>
+                    </div>
+
+                    <div class="quiz-card">
+                        <h3 class="quiz-question">What is the chemical symbol for water?</h3>
+                        <ul class="answer-list">
+                            <li class="answer">
+                                <input type="radio" id="ansA" name="quiz-answer" value="A">
+                                <label for="ansA">
+                                    <span class="custom-radio"></span>
+                                    <span class="answer-text">A. H2O</span>
+                                </label>
+                            </li>
+
+                            <li class="answer">
+                                <input type="radio" id="ansB" name="quiz-answer" value="B">
+                                <label for="ansB">
+                                    <span class="custom-radio"></span>
+                                    <span class="answer-text">B. CO2</span>
+                                </label>
+                            </li>
+
+                            <li class="answer">
+                                <input type="radio" id="ansC" name="quiz-answer" value="C">
+                                <label for="ansC">
+                                    <span class="custom-radio"></span>
+                                    <span class="answer-text">C. O2</span>
+                                </label>
+                            </li>
+                            
+                            <li class="answer">
+                                <input type="radio" id="ansD" name="quiz-answer" value="D">
+                                <label for="ansD">
+                                    <span class="custom-radio"></span>
+                                    <span class="answer-text">D. NaCl</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="button-container">
+                        <button class="quiz-button" id="previous"><span><i class="fa-solid fa-arrow-left"></i> </span>Previous</button>
+                        <button class="quiz-button next" id="next">Next <span><i class="fa-solid fa-arrow-right"></i></span></button>
+                    </div>
+                </div>
+
+                <div class="question-overview">
+                    <p><span><i class="fa-solid fa-list"></i></span> Question Overview</p>
+                    <div class="quiz-lists">
+                        
+                    </div>
+
+                    <div class="hint">
+                        <ul class="rule-lists">
+                            <li class="rule"><span class="answered"></span> Answered</li>
+                            <li class="rule"><span class="current"></span> Current</li>
+                            <li class="rule"><span class="unanswered"></span> Unaswered</li>
+                        </ul>
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="submit-container">
+                        <button class="submit-btn" id="submit-btn">Submit</button>
+                    </div>
+
+                </div>
+            </div>
+
+
+            
+
+            
+        </main>
+
+        <footer>
+            <p>© 2026 Adhitya. All Right reserved</p>
+        </footer>
+
+
+
+
+        <script src="https://kit.fontawesome.com/1921a4ada3.js" crossorigin="anonymous"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
